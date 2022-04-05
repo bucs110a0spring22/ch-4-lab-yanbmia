@@ -13,7 +13,7 @@ What did you clean up?:
 Summary of function(s) added:
   -> drawInverseSine(): creates an inverse sine graph (colored blue)
   -> plotPoint(): allows user to add a point to the graph.
-  
+  -> intersectionGraph(): checks if the user's point is on the sine graph.
 Summary of Feature Added:
   Allows user to change background color, turtle shape, and adding units to the graph. 
 

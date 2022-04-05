@@ -1,11 +1,8 @@
 import turtle
 import math
 
-########### Your Code here ##############
 dart = turtle.Turtle()
 
-
-#additional feature
 windowColor = input("Which color for the background? ")
 turtleShape = input("Choose a pointer shape (arrow, turtle, circle): ")
 graphUnits = input("Units on the graph? (Type Yes or No): ")
@@ -16,7 +13,6 @@ def setupWindow(mywindow=None):
   turtle.Screen().bgcolor(windowColor)
   dart.shape(turtleShape)
 
-#additional feature
 def setupUnits():
   fred = turtle.Turtle()
   fred.penup()
@@ -48,13 +44,11 @@ def drawSineCurve(myturtle=None):
     y_val = math.sin(math.radians(i))
     x_val = math.radians(i)
     sin_point = (x_val,y_val)
-    dart.goto(x_val,y_val)
+    dart.goto(sin_point)
     pointsList.append(sin_point)
   dart.pu()
   return pointsList
   
-    
-
 def drawCosineCurve(myturtle=None):
   for i in angles:
     y_val = math.cos(math.radians(i))
@@ -62,7 +56,6 @@ def drawCosineCurve(myturtle=None):
     dart.goto(x_val,y_val)
     dart.pd()
   dart.pu()
-
 
 def drawTangentCurve(myturtle=None):
   for i in angles:
@@ -78,7 +71,6 @@ def drawTangentCurve(myturtle=None):
     dart.pd()
   dart.pu()
 
-#new function
 def drawInverseSine(myturtle=None):
   dart.color("lawngreen")
   for i in angles:
@@ -104,6 +96,7 @@ def plotPoint(value):
   albert = turtle.Turtle()
   albert.color("fuchsia")
   albert.shape("circle")
+  albert.shapesize(0.5,0.5,0.5)
   albert.penup()
   x_val = int(value[1])
   y_val = int(value[3])
@@ -111,7 +104,6 @@ def plotPoint(value):
   albert.goto(point)
   return(point)
   
-
 def intersectionGraph():
   if plotPoint(value) in drawSineCurve():
     print("Point is on the sine graph.")
@@ -137,7 +129,6 @@ def main():
   
     drawInverseSine(dart)
     plotPoint(value)
-  
     intersectionGraph()
     wn.exitonclick()
 main()
