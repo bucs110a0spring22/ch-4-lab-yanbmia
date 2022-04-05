@@ -43,11 +43,16 @@ def setupAxis(myturtle=None):
 angles = range(-360,361)
 
 def drawSineCurve(myturtle=None):
+  pointsList = []
   for i in angles:
     y_val = math.sin(math.radians(i))
     x_val = math.radians(i)
+    sin_point = (x_val,y_val)
     dart.goto(x_val,y_val)
+    pointsList.append(sin_point)
   dart.pu()
+  return pointsList
+  
     
 
 def drawCosineCurve(myturtle=None):
@@ -75,7 +80,7 @@ def drawTangentCurve(myturtle=None):
 
 #new function
 def drawInverseSine(myturtle=None):
-  dart.color("blue")
+  dart.color("lawngreen")
   for i in angles:
     y_val = math.sin(math.radians(i))
     if y_val == 0:
@@ -94,30 +99,31 @@ def drawInverseSine(myturtle=None):
   dart.pu()
 
 value = input("Type a Coordinate [Format (x,y)]: ")
+
 def plotPoint(value):
   albert = turtle.Turtle()
-  albert.color("red")
-  albert.width(4)
+  albert.color("fuchsia")
+  albert.shape("circle")
   albert.penup()
   x_val = int(value[1])
   y_val = int(value[3])
   point = (x_val,y_val)
   albert.goto(point)
-  albert.write("X")
-  albert.hideturtle()
   return(point)
   
 
 def intersectionGraph():
-  
+  if plotPoint(value) in drawSineCurve():
+    print("Point is on the sine graph.")
+    return(True)
+  else:
+    print("Point is not on the sine graph.")
+    return(False)
 
-
-  
 
 def main():
     wn = turtle.Screen()
     wn.tracer(5)
-    #dart = turtle.Turtle()
     dart.speed(0)
     drawSineCurve(dart)
 
@@ -131,6 +137,8 @@ def main():
   
     drawInverseSine(dart)
     plotPoint(value)
+  
+    intersectionGraph()
     wn.exitonclick()
 main()
 
